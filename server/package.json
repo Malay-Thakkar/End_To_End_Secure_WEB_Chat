@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "end to end secure web chat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "react.js",
+    "express",
+    "cryptojs"
+  ],
+  "author": "Malay Thakkar",
+  "license": "ISC"
+}
