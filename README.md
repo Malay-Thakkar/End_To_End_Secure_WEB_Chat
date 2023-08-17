@@ -6,8 +6,8 @@
 
 • Utilized Socket.io for enabling seamless, encrypted, and instant messaging between users in the chat application.
 
-![image](https://github.com/Malay-Thakkar/End_To_End_Secure_WEB_Chat/assets/78149426/eab9d379-5888-4ec8-a9f2-6d3cde66f57c)
+![image](https://github.com/Malay-Thakkar/End_To_End_Secure_WEB_Chat/assets/78149426/7b81f5f4-ac44-4cee-9943-44515ede3bbc)
 
-![image](https://github.com/Malay-Thakkar/End_To_End_Secure_WEB_Chat/assets/78149426/ae0660c0-de75-4c9b-83d5-f9a9bd6fc015)
+![image](https://github.com/Malay-Thakkar/End_To_End_Secure_WEB_Chat/assets/78149426/a1baa0a9-3a33-43bd-9090-177c6e4d3654)
 
-![image](https://github.com/Malay-Thakkar/End_To_End_Secure_WEB_Chat/assets/78149426/79d95af7-9f05-4104-8e03-e57845683358)
+![image](https://github.com/Malay-Thakkar/End_To_End_Secure_WEB_Chat/assets/78149426/4e31e16a-9ef2-4ca8-9fbb-4d4ca9dfab76)
