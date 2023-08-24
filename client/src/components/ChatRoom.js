@@ -3,6 +3,7 @@ import ScrollToBottom from "react-scroll-to-bottom";
 import "../styles/ChatRoom.css";
 import { AppContext } from "../App";
 
+// Function to format time in AM/PM format
 const formatAMPM = (date) => {
   let hours = date.getHours();
   let minutes = date.getMinutes();
@@ -15,6 +16,7 @@ const formatAMPM = (date) => {
 };
 
 export default function ChatRoom() {
+  // Accessing context to get shared state and functions
   const {
     name,
     room,
@@ -28,16 +30,22 @@ export default function ChatRoom() {
     usersList,
   } = useContext(AppContext);
 
+  // State for expanding/collapsing chat room members list
   const [expand, setExpand] = useState(false);
 
+  // Function to handle leaving the chat room
   const handleLeave = () => {
     setSigned(false);
     socket.emit("logout");
   };
+
+  // Function to handle expanding/collapsing chat room members list
   const handleExpand = (e) => {
     e.preventDefault();
     setExpand(!expand);
   };
+
+  // Function to send a chat message
   const sendHandler = (e) => {
     e.preventDefault();
     const plaintext = {
@@ -45,6 +53,7 @@ export default function ChatRoom() {
       time: formatAMPM(new Date()),
       message,
     };
+    // Emit a message to the server with encrypted data
     socket.emit("message", pack(plaintext, usersKeys));
     setMessage("");
   };
@@ -68,12 +77,14 @@ export default function ChatRoom() {
           <div className="chat-room-controls">
             <div className="room-members">
               <div className="members-header">Members list</div>
+              {/* Display the list of chat room members */}
               {usersList.map((user) => (
                 <div key={user} className="room-member">
                   {user}
                 </div>
               ))}
             </div>
+            {/* Button to logout from the chat room */}
             <div className="leave-room" onClick={handleLeave}>
               <span>Logout</span>
               <i className="material-icons">logout</i>
@@ -82,6 +93,7 @@ export default function ChatRoom() {
 
           <div className="chat-room-messages">
             <ScrollToBottom className="messages-area">
+              {/* Display chat messages */}
               {messages.map(({ m, t, n, e, k }) => (
                 <div
                   key={Math.random()}
@@ -92,6 +104,7 @@ export default function ChatRoom() {
                     <span className="message-time">{t}</span>
                   </div>
                   <div className="message-text">{m}</div>
+                  {/* Display encrypted data when expanded */}
                   {expand && (
                     <div className="enc-data">
                       <div>
@@ -100,13 +113,15 @@ export default function ChatRoom() {
                         </span>
                         {e.data}
                       </div>
-                      {/* <div><span>AES key: <br /></span>{e.aesKey}</div>
-                                    <div><span>Private RSA key: <br /></span>{k.replace('-----BEGIN RSA PRIVATE KEY-----', '').replace('-----END RSA PRIVATE KEY-----', '')}</div> */}
+                      {/* Display AES key and private RSA key*/}
+                      <div><span>AES key: <br /></span>{e.aesKey}</div>
+                                    <div><span>Private RSA key: <br /></span>{k.replace('-----BEGIN RSA PRIVATE KEY-----', '').replace('-----END RSA PRIVATE KEY-----', '')}</div>
                     </div>
                   )}
                 </div>
               ))}
             </ScrollToBottom>
+            {/* Input area for typing and sending messages */}
             <div className="send-message-area">
               <input
                 type="text"
